@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Tuple
 
-from Booking.common.types import DjangoModelType
+from apps.common.types import DjangoModelType
 
 
 def model_update(

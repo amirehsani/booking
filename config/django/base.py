@@ -14,10 +14,10 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 # Application definition
 LOCAL_APPS = [
-    'Booking.core.apps.CoreConfig',
-    'Booking.common.apps.CommonConfig',
-    'Booking.users.apps.UsersConfig',
-    'Booking.authentication.apps.AuthenticationConfig',
+    'apps.core.apps.CoreConfig',
+    'apps.common.apps.CommonConfig',
+    'apps.users.apps.UsersConfig',
+    'apps.authentication.apps.AuthenticationConfig',
 ]
 
 THIRD_PARTY_APPS = [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='psql://user:password@127.0.0.1:5432/Booking'),
+    'default': env.db('DATABASE_URL', default='psql://user:password@127.0.0.1:5432/apps'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -139,8 +139,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'EXCEPTION_HANDLER': 'Booking.api.exception_handlers.drf_default_with_modifications_exception_handler',
-    # 'EXCEPTION_HANDLER': 'Booking.api.exception_handlers.hacksoft_proposed_exception_handler',
+    'EXCEPTION_HANDLER': 'apps.api.exception_handlers.drf_default_with_modifications_exception_handler',
+    # 'EXCEPTION_HANDLER': 'apps.api.exception_handlers.hacksoft_proposed_exception_handler',
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),

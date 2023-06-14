@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Use this script to test if a given TCP host/port are available
+# This is a shell script commonly used to wait for a TCP host and port to become
+# available before executing a command or starting a service.
 
 WAITFORIT_cmdname=${0##*/}
 
@@ -150,6 +152,7 @@ if [[ $WAITFORIT_TIMEOUT_PATH =~ "busybox" ]]; then
     WAITFORIT_ISBUSY=1
     # Check if busybox timeout uses -t flag
     # (recent Alpine versions don't support -t anymore)
+    # shellcheck disable=SC2260
     if timeout &>/dev/stdout | grep -q -e '-t '; then
         WAITFORIT_BUSYTIMEFLAG="-t"
     fi

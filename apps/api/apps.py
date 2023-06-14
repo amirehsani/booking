@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ApiConfig(AppConfig):
-    name = 'Booking.api'
+    name = 'apps.api'

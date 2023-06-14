@@ -5,10 +5,10 @@ from rest_framework import serializers
 
 from django.core.validators import MinLengthValidator
 from .validators import number_validator, special_char_validator, letter_validator
-from Booking.users.models import BaseUser , Profile
-from Booking.api.mixins import ApiAuthMixin
-from Booking.users.selectors import get_profile
-from Booking.users.services import register 
+from apps.users.models import BaseUser , Profile
+from apps.api.mixins import ApiAuthMixin
+from apps.users.selectors import get_profile
+from apps.users.services import register
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 
 from drf_spectacular.utils import extend_schema

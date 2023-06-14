@@ -12,7 +12,7 @@ cd booking
 virtualenv -p python3.10 venv
 source venv/bin/activate
 ```
-d
+
 3- install Dependencies
 ```
 pip install -r requirements_dev.txt
