@@ -1,4 +1,4 @@
-# booking
+# Booking
 Sample back-end project representing a platform with capability of booking resorts and flight tickets. All the tech and tools that are used in this project:
 
 Python -> main language
@@ -13,7 +13,7 @@ Swagger -> API documentation
 
 see more in requirements.txt
 
-## project setup
+## Project Setup
 
 1- Complete cookiecutter workflow (recommendation: leave project_slug empty) and go inside the project
 ```
@@ -28,8 +28,7 @@ source venv/bin/activate
 
 3- Install dependencies
 ```
-pip install -r requirements_dev.txt
-pip install -r requirements.txt
+pip install -r requirements/local.txt
 ```
 
 4- Create an env

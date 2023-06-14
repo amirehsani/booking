@@ -72,6 +72,6 @@ if SENTRY_DSN:
             CeleryIntegration(),
         ],
         # If you wish to associate users to errors (assuming you are using
-        # django.contrib.auth) you may enable sending PII data.
+        # settings.contrib.auth) you may enable sending PII data.
         send_default_pii=False
     )

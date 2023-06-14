@@ -31,28 +31,28 @@ THIRD_PARTY_APPS = [
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
+    'settings.contrib.admin',
+    'settings.contrib.auth',
+    'settings.contrib.contenttypes',
+    'settings.contrib.sessions',
+    'settings.contrib.messages',
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',
+    'settings.contrib.staticfiles',
     *THIRD_PARTY_APPS,
     *LOCAL_APPS,
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    'settings.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'settings.contrib.sessions.middleware.SessionMiddleware',
+    'settings.middleware.common.CommonMiddleware',
+    'settings.middleware.csrf.CsrfViewMiddleware',
+    'settings.contrib.auth.middleware.AuthenticationMiddleware',
+    'settings.contrib.messages.middleware.MessageMiddleware',
+    'settings.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -87,7 +87,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 if os.environ.get('GITHUB_WORKFLOW'):
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'settings.db.backends.postgresql',
             'NAME': 'github_actions',
             'USER': 'user',
             'PASSWORD': 'password',
@@ -102,16 +102,16 @@ if os.environ.get('GITHUB_WORKFLOW'):
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'settings.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'settings.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'settings.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'settings.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 AUTH_USER_MODEL = 'users.BaseUser'
@@ -161,12 +161,12 @@ CACHE_TTL = 60 * 15
 
 APP_DOMAIN = env("APP_DOMAIN", default="http://localhost:8000")
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEFAULT_AUTO_FIELD = "settings.db.models.BigAutoField"
 
-from config.settings.cors import *  # noqa
-from config.settings.jwt import *  # noqa
-from config.settings.sessions import *  # noqa
-from config.settings.celery import *  # noqa
-from config.settings.swagger import *  # noqa
-#from config.settings.sentry import *  # noqa
-#from config.settings.email_sending import *  # noqa
+from config.tools.cors import *  # noqa
+from config.tools.jwt import *  # noqa
+from config.tools.sessions import *  # noqa
+from config.tools.celery import *  # noqa
+from config.tools.swagger import *  # noqa
+#from config.tools.sentry import *  # noqa
+#from config.tools.email_sending import *  # noqa

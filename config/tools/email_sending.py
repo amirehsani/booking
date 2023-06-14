@@ -12,10 +12,10 @@ EMAIL_SENDING_FAILURE_TRIGGER = env.bool("EMAIL_SENDING_FAILURE_TRIGGER", defaul
 EMAIL_SENDING_FAILURE_RATE = env.float("EMAIL_SENDING_FAILURE_RATE", default=0.2)
 
 if EMAIL_SENDING_STRATEGY == EmailSendingStrategy.LOCAL:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    EMAIL_BACKEND = "settings.core.mail.backends.console.EmailBackend"
 
 if EMAIL_SENDING_STRATEGY == EmailSendingStrategy.MAILTRAP:
-    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_BACKEND = "settings.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = env("MAILTRAP_EMAIL_HOST")
     EMAIL_HOST_USER = env("MAILTRAP_EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = env("MAILTRAP_EMAIL_HOST_PASSWORD")

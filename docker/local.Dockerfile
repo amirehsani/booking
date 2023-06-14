@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 ADD requirements/ requirements/
 RUN pip install -r requirements/local.txt
 
-# Get the django project into the docker container
+# Get the settings project into the docker container
 RUN mkdir /app
 WORKDIR /app
 ADD ./ /app/

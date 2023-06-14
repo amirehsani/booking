@@ -2,7 +2,7 @@ import datetime
 
 from config.env import env
 
-# For more settings
+# For more tools
 # Read everything from here - https://styria-digital.github.io/django-rest-framework-jwt/#additional-settings
 
 # Default to 7 days

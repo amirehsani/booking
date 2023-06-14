@@ -24,7 +24,7 @@ services:
     build:
       context: .
       dockerfile: docker/production.Dockerfile
-    container_name: django
+    container_name: settings
     command: ./docker/web_entrypoint.sh
     environment:
       - DATABASE_URL=psql://user:password@db:5432/apps

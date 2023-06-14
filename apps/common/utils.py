@@ -36,7 +36,7 @@ def inline_serializer(*, fields, data=None, **kwargs):
 
 def assert_settings(required_settings, error_message_prefix=""):
     """
-    Checks if each item from `required_settings` is present in Django settings
+    Checks if each item from `required_settings` is present in Django tools
     """
     not_present = []
     values = {}
@@ -50,7 +50,7 @@ def assert_settings(required_settings, error_message_prefix=""):
 
     if not_present:
         if not error_message_prefix:
-            error_message_prefix = "Required settings not found."
+            error_message_prefix = "Required tools not found."
 
         stringified_not_present = ", ".join(not_present)
 
